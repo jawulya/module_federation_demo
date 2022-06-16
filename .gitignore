@@ -19,7 +19,6 @@ dist
 lib
 esm
 cjs
-!scripts/lib
 generated
 downloaded
 coverage
