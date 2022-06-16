@@ -1,0 +1,120 @@
+# IntelliJ
+.idea
+*.iml
+
+# Node
+node_modules
+
+# NPM@5
+package-lock.json
+
+# YARN
+/yarn.lock
+.yarn-cache
+applications/*/.yarnrc
+lerna.json
+
+# Output directories
+dist
+lib
+esm
+cjs
+!scripts/lib
+generated
+downloaded
+coverage
+flow-typed/
+testoutput
+types
+storybook-static
+storybook-dist
+!common/types/
+
+# grapqhl codegen
+__generated__
+
+# Log files
+*.log
+
+# Magic log files
+/logs
+scripts/logs
+common/logs
+common/*/logs
+common/*/*/logs
+applications/*/logs
+applications/*/*/logs
+applications/report-builder/*/*/logs
+
+# TMP directories
+.cache
+
+# Test
+mocha.json
+test-results.xml
+testoutput
+junit.xml
+@rerun*
+!**/__mocks__/**/
+
+# Mac
+.DS_Store
+
+# Vim
+.*.swo
+.*.swp
+*.orig
+
+# VS Code
+.vscode
+
+# Express Proxy
+local-dev.config.json
+
+# Other
+*.tmp
+
+# Mocks
+mocks/
+
+# NYC output
+.nyc_output/
+
+# SRC:CLR
+.issues.srcclr-e
+.temp-scan.txt
+srcclr/
+scripts/srcclr-scanner.sh
+
+# VHost
+/scripts/.vhost
+.packed
+vhost_*
+package.json.bkp
+
+# SonarQube
+.scannerwork
+s_client
+
+# HAT Generated
+.tshat-*
+
+# HAT lint
+**/.eslintrc.json
+**/tsconfig.json
+**/tsconfig.build.json
+**/tsconfig.lint.json
+
+# Python
+*.pyc
+
+build-profile-report
+build-profile-report/**
+
+# scripts-lib
+scripts-lib
+
+# Define scope script
+.define-scope-*
+.publish-npm-dependencies*
+.merge-bot*
