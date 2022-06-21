@@ -6,7 +6,6 @@ module.exports = {
         main: path.resolve(__dirname, "./src", "index.js"),
     },
     mode: 'development',
-        // contentBase: path.join(__dirname, "dist"),
     devServer: {
         port: 3002,
         historyApiFallback: true,
@@ -34,10 +33,10 @@ module.exports = {
             name: "remoteApp",
             filename: "remoteEntry.js",
             exposes: {
-                './RemoteApp': './src/module',
+                './Button': './src/button',
+                '.': './src/module/',
             },
-            shared: { react: { singleton: true }, 'react-dom': { singleton: true } },
-}),
+            shared: {'react': {singleton: true },'react-dom': {singleton: true }, 'lodash': {singleton: true },'moment': {singleton: true }, },}),
 new HtmlWebpackPlugin({
     template: "./public/index.html",
 })

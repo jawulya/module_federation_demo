@@ -1,17 +1,20 @@
 import React from 'react';
-import { Switch, BrowserRouter, Route } from 'react-router-dom';
+import { Switch, Router, Route } from 'react-router-dom';
+import { createBrowserHistory } from "history";
 
-import {Home} from './home';
-import {Next} from './next'
+import {Cart} from './cart';
+import {Checkout} from './checkout'
 
-const App = () => {
+const defaultHistory = createBrowserHistory({basename: '/cart'});
+
+const App = ({history = defaultHistory}) => {
     return (
-        <BrowserRouter>
+        <Router history={history} >
             <Switch>
-                <Route exact path="/next" component={Next} />
-                <Route path="/" component={Home} />
+                <Route exact path="/checkout" component={Checkout} />
+                <Route path="/" component={Cart} />
             </Switch>
-        </BrowserRouter>
+        </Router>
     );
 };
 
