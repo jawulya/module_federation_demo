@@ -1,9 +1,23 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
 const path = require('path');
+const deps = require("./package.json").dependencies;
+
+const shared = {
+    ...deps,
+    react: {
+        singleton: true,
+        requiredVersion: deps.react,
+    },
+    'react-dom': {
+        singleton: true,
+        requiredVersion: deps["react-dom"],
+    }
+};
+
 module.exports = {
     entry: {
-        main: path.resolve(__dirname, "./src", "index.js"),
+        main: path.resolve(__dirname, "./src", "index"),
     },
     mode: 'development',
     devServer: {
@@ -11,12 +25,15 @@ module.exports = {
         historyApiFallback: true,
     },
     output: {
+        path: path.resolve(__dirname, './dist'),
+        filename: 'main.js',
+        chunkFilename: '[name].bundle.js',
         publicPath: 'auto',
     },
     module: {
         rules: [
             {
-                test: /\.m?js$/,
+                test: /\.(js|jsx)?$/,
                 exclude: /node_modules/,
                 use: {
                     loader: 'babel-loader',
@@ -36,9 +53,14 @@ module.exports = {
                 './Button': './src/button',
                 '.': './src/module/',
             },
-            shared: {'react': {singleton: true },'react-dom': {singleton: true }, 'lodash': {singleton: true },'moment': {singleton: true }, },}),
-new HtmlWebpackPlugin({
-    template: "./public/index.html",
-})
-]
+            shared
+        }),
+        new HtmlWebpackPlugin({
+            template: path.resolve(__dirname, "./public/index.html"),
+            base: '/cart'
+        })
+],
+    resolve: {
+        extensions: [".js", ".jsx"],
+    },
 }
