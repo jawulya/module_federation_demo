@@ -1,7 +1,5 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
-const Dotenv = require('dotenv-webpack');
-const ExternalTemplateRemotesPlugin = require('external-remotes-plugin');
 
 const path = require('path');
 const deps = require("./package.json").dependencies;
@@ -24,7 +22,7 @@ module.exports = {
     },
     mode: 'development',
     devServer: {
-        port: 3001,
+        port: 3003,
         historyApiFallback: true,
     },
     output: {
@@ -46,18 +44,12 @@ module.exports = {
         ]
     },
     plugins: [
-        new Dotenv(),
-        new ExternalTemplateRemotesPlugin(),
         new ModuleFederationPlugin({
-            name: "container",
-            remotes: {
-                remoteApp: 'remoteApp@http://localhost:3002/remoteEntry.js'
-            },
+            name: "container-runtime",
                 shared,
         }),
         new HtmlWebpackPlugin({
             template: "./public/index.html",
-            base: '/'
         })
     ],
     resolve: {

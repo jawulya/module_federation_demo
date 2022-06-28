@@ -2193,6 +2193,11 @@ dot-case@^3.0.4:
     no-case "^3.0.4"
     tslib "^2.0.3"
 
+dotenv@^16.0.1:
+  version "16.0.1"
+  resolved "https://artifactory.eng.medallia.com/api/npm/virtual-npm/dotenv/-/dotenv-16.0.1.tgz#8f8f9d94876c35dac989876a5d3a82a267fdce1d"
+  integrity sha1-j4+dlIdsNdrJiYdqXTqComf9zh0=
+
 ee-first@1.1.1:
   version "1.1.1"
   resolved "https://artifactory.eng.medallia.com/api/npm/virtual-npm/ee-first/-/ee-first-1.1.1.tgz#590c61156b0ae2f4f0255732a158b266bc56b21d"

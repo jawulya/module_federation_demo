@@ -1,7 +1,7 @@
 import React from 'react';
 import * as moment from 'moment';
 import * as _ from 'lodash';
-import { Button } from './button';
+import Button from './button';
 
 console.log(moment().format("dddd, MMMM Do YYYY, h:mm:ss a")); // en
 

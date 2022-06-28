@@ -1,5 +1,8 @@
 import React from 'react';
+import {noop} from "lodash";
 
-export const Button = () => {
-    return (<button>Cart Button</button>)
+const Button = ({name ='Cart Button', onClick=noop}) => {
+    return (<button onClick={onClick}>{name}</button>)
 }
+
+export default Button;
