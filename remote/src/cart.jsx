@@ -10,7 +10,7 @@ export const Cart = () => {
     return (
         <div>
             <h1>CART</h1>
-            <Link to="/checkout">Navigate to CHECKOUT</Link>
+            <Link to="/checkout">Navigate to CHECKOUT 222</Link>
             <p>{moment().format("dddd, MMMM Do YYYY, h:mm:ss a")}</p>
             <div style={{paddingTop: '20px'}}>
                 <Button />

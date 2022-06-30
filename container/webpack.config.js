@@ -56,9 +56,9 @@ module.exports = {
         new ModuleFederationPlugin({
             name: "container",
             remotes: {
-                remoteApp: 'remoteApp@http://localhost:3002/remoteEntry.js'
+                remoteApp: 'remoteApp@[window.REACT_APP_REMOTE_APP_URI]/remoteEntry.js'
             },
-                shared,
+                shared
         }),
         new HtmlWebpackPlugin({
             template: "./public/index.html",
