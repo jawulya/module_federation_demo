@@ -2,6 +2,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
 const Dotenv = require('dotenv-webpack');
 const ExternalTemplateRemotesPlugin = require('external-remotes-plugin');
+const { MFLiveReloadPlugin } = require("@module-federation/fmr");
 
 const path = require('path');
 const deps = require("./package.json").dependencies;
@@ -48,6 +49,10 @@ module.exports = {
     plugins: [
         new Dotenv(),
         new ExternalTemplateRemotesPlugin(),
+        new MFLiveReloadPlugin({
+            port: 3001,
+            container: "container",
+        }),
         new ModuleFederationPlugin({
             name: "container",
             remotes: {

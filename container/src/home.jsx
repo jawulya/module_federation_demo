@@ -6,6 +6,11 @@ import * as _ from 'lodash';
 
 export const Home = () => {
     const a = _.assign({});
+    window.addEventListener('eventFromMfe', (customEvent) => {
+        const {detail} = customEvent || {}
+        console.log('data from custom event', JSON.stringify(detail))
+    })
+
     return (
         <div>
             <h1>This is Ecommerce App</h1>
